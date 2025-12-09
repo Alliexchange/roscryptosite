@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Professional white-blue color scheme */
+  --color-background: hsl(220 20% 98%);
+  --color-foreground: hsl(222 47% 11%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222 47% 11%);
+
+  /* Dark primary - professional style */
+  --color-primary: hsl(222 47% 15%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  /* Refined secondary colors */
+  --color-secondary: hsl(220 14% 96%);
+  --color-secondary-foreground: hsl(222 47% 11%);
+  --color-muted: hsl(220 14% 96%);
+  --color-muted-foreground: hsl(220 9% 46%);
+  --color-accent: hsl(220 14% 96%);
+  --color-accent-foreground: hsl(222 47% 11%);
+
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  /* Refined borders */
+  --color-border: hsl(220 13% 91%);
+  --color-input: hsl(220 13% 91%);
+  --color-ring: hsl(222 47% 15%);
+
+  /* Radius */
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Professional gradient border effect - blue theme */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-lg) + 2px);
+  background: linear-gradient(
+    135deg,
+    hsl(222 47% 15% / 0.4),
+    hsl(222 47% 20% / 0.3),
+    hsl(222 47% 25% / 0.2),
+    hsl(222 47% 15% / 0.4)
+  );
+  z-index: -1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Subtle geometric pattern background */
+.pattern-bg {
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(circle at 1px 1px, hsl(220 13% 85%) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 14% 96%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(220 9% 75%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(220 9% 60%);
+}
+
+/* Feature card icon container - dark */
+.feature-icon {
+  background: linear-gradient(135deg,
+    hsl(222 47% 15% / 0.1) 0%,
+    hsl(222 47% 15% / 0.2) 100%
+  );
+}
+
+/* Number badge - dark */
+.step-number {
+  background: linear-gradient(135deg,
+    hsl(222 47% 15%) 0%,
+    hsl(222 47% 20%) 100%
+  );
+  box-shadow: 0 4px 12px hsl(222 47% 15% / 0.3);
+}
+
+/* Hero gradient text - dark */
+.gradient-text {
+  background: linear-gradient(135deg,
+    hsl(222 47% 15%) 0%,
+    hsl(222 47% 25%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect for buttons - dark */
+.btn-glow {
+  box-shadow: 0 4px 14px 0 hsl(222 47% 15% / 0.3);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 6px 20px 0 hsl(222 47% 15% / 0.4);
+  transform: translateY(-1px);
+}
+
+/* Crypto ticker animation */
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-content {
+  display: flex;
+  animation: ticker-scroll 40s linear infinite;
+  width: fit-content;
+}
+
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Stats section - dark style */
+.stats-section {
+  background: linear-gradient(135deg,
+    hsl(222 47% 15%) 0%,
+    hsl(222 47% 20%) 100%
+  );
+}
+
+/* Dark header style */
+.dark-header {
+  background: hsl(222 47% 11%);
+  color: white;
+}
+
+/* Profit/Loss colors */
+.text-profit {
+  color: hsl(142 76% 45%);
+}
+
+.text-loss {
+  color: hsl(0 72% 51%);
+}
+
+/* Exchange card style */
+.exchange-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1), 0 1px 2px rgb(0 0 0 / 0.06);
+  border: 1px solid hsl(220 13% 91%);
+  transition: box-shadow 0.2s ease;
+}
+
+.exchange-card:hover {
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.1);
+}

@@ -1,0 +1,22 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  server: {
+    allowedHosts: true,
+  },
+  // SPA fallback для preview режима
+  preview: {
+    port: 4173,
+  },
+  // Явно указываем SPA режим
+  appType: 'spa',
+})
