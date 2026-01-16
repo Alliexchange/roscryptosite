@@ -6,6 +6,7 @@ import securityRaw from '@/content/docs/security.md?raw'
 import whatIsUsdtRaw from '@/content/docs/what-is-usdt.md?raw'
 import faqRaw from '@/content/docs/faq.md?raw'
 import contactRaw from '@/content/docs/contact.md?raw'
+import legalServicesRaw from '@/content/docs/legal-services.md?raw'
 
 export interface DocArticle {
   slug: string
@@ -59,6 +60,7 @@ const rawDocs: Record<string, string> = {
   'what-is-usdt': whatIsUsdtRaw,
   'faq': faqRaw,
   'contact': contactRaw,
+  'legal-services': legalServicesRaw,
 }
 
 // Parse all documents

@@ -16,7 +16,10 @@ import {
   BadgeCheck,
   Wallet,
   RefreshCw,
-  ShoppingCart
+  ShoppingCart,
+  Scale,
+  FileCheck,
+  ShieldCheck
 } from "lucide-react"
 import { Link } from "react-router-dom"
 
@@ -48,10 +51,19 @@ export function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text */}
             <div>
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full mb-6">
-                <BadgeCheck className="w-4 h-4" />
-                Проверенный сервис обмена
+              {/* Badges */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full">
+                  <BadgeCheck className="w-4 h-4" />
+                  Проверенный сервис обмена
+                </div>
+                <Link
+                  to="/docs/legal-services"
+                  className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-sm font-medium px-4 py-2 rounded-full hover:bg-amber-200 transition-colors"
+                >
+                  <Scale className="w-4 h-4" />
+                  Крипто Юрист
+                </Link>
               </div>
 
               {/* Title */}
@@ -102,8 +114,8 @@ export function Home() {
                   Лучший курс
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-primary" />
-                  Физ. и юр. лица
+                  <Scale className="w-4 h-4 text-amber-600" />
+                  Юридическая поддержка
                 </div>
               </div>
 
@@ -366,6 +378,74 @@ export function Home() {
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Legal Services Section */}
+      <section className="py-20 lg:py-28 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-sm font-medium px-4 py-2 rounded-full mb-6">
+                <Scale className="w-4 h-4" />
+                Штатный юрист
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-slate-900">
+                Юридическая поддержка
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Помогаем клиентам со снятием банковских ограничений и сопровождаем сложные кейсы по ФЗ-115 и ФЗ-161
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
+              <Card className="exchange-card">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
+                    <FileCheck className="w-7 h-7 text-amber-600" />
+                  </div>
+                  <CardTitle className="text-xl">ФЗ-115</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    Помощь при блокировках счетов, подготовка документов для банка, обжалование ограничений
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="exchange-card">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
+                    <Scale className="w-7 h-7 text-amber-600" />
+                  </div>
+                  <CardTitle className="text-xl">ФЗ-161</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    Консультации по крупным переводам, работе с электронными деньгами и легальным схемам
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="exchange-card">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
+                    <ShieldCheck className="w-7 h-7 text-amber-600" />
+                  </div>
+                  <CardTitle className="text-xl">Сопровождение</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    Полное сопровождение сложных кейсов от консультации до положительного результата
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/docs/legal-services"
+                className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+              >
+                Подробнее о юридической поддержке
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
